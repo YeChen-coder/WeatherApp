@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model SavedQuery {
+  id        Int      @id @default(autoincrement())
+
+  // User metadata
+  label     String?  @db.VarChar(255)
+
+  // Location (normalized from geocoding)
+  locationName String  @map("location_name") @db.VarChar(255)
+  latitude     Decimal @db.Decimal(9, 6)
+  longitude    Decimal @db.Decimal(9, 6)
+
+  // Date range
+  startDate DateTime @map("start_date") @db.Date
+  endDate   DateTime @map("end_date") @db.Date
+
+  // Weather data (flexible JSONB storage)
+  weatherData Json    @map("weather_data")
+
+  // Additional context
+  geocodingConfidence Decimal? @map("geocoding_confidence") @db.Decimal(3, 2)
+  locationType        String?  @map("location_type") @db.VarChar(50)
+
+  // Timestamps
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([locationName])
+  @@index([startDate, endDate])
+  @@index([createdAt(sort: Desc)])
+  @@map("saved_queries")
+}
