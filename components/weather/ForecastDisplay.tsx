@@ -1,7 +1,7 @@
 'use client';
 
 import { DailyWeather } from '@/lib/types/weather';
-import { getWeatherDescription } from '@/lib/types/weather';
+import { getWeatherDescription, getWeatherIcon } from '@/lib/types/weather';
 
 interface ForecastDisplayProps {
   forecast: DailyWeather;
@@ -41,7 +41,12 @@ export default function ForecastDisplay({ forecast }: ForecastDisplayProps) {
               {formatDate(day)}
             </p>
 
-            {/* Weather Icon/Description */}
+            {/* Weather Icon */}
+            <div className="text-5xl text-center mb-2">
+              {getWeatherIcon(forecast.weathercode[index], true)}
+            </div>
+
+            {/* Weather Description */}
             <p className="text-center text-gray-600 text-xs mb-3">
               {getWeatherDescription(forecast.weathercode[index])}
             </p>

@@ -1,7 +1,7 @@
 'use client';
 
 import { CurrentWeather as CurrentWeatherType } from '@/lib/types/weather';
-import { getWeatherDescription } from '@/lib/types/weather';
+import { getWeatherDescription, getWeatherIcon } from '@/lib/types/weather';
 
 interface CurrentWeatherProps {
   weather: CurrentWeatherType;
@@ -10,6 +10,7 @@ interface CurrentWeatherProps {
 
 export default function CurrentWeather({ weather, locationName }: CurrentWeatherProps) {
   const weatherDescription = getWeatherDescription(weather.weathercode);
+  const weatherIcon = getWeatherIcon(weather.weathercode, weather.is_day === 1);
 
   // Convert wind direction to compass direction
   const getWindDirection = (degrees: number): string => {
@@ -28,8 +29,11 @@ export default function CurrentWeather({ weather, locationName }: CurrentWeather
         </p>
       </div>
 
-      {/* Main Temperature */}
+      {/* Main Temperature with Icon */}
       <div className="text-center mb-8">
+        <div className="text-8xl mb-4">
+          {weatherIcon}
+        </div>
         <div className="text-7xl font-bold mb-2">
           {Math.round(weather.temperature)}°C
         </div>

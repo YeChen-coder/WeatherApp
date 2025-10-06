@@ -99,9 +99,23 @@ export default function Home() {
         </main>
 
         {/* Footer */}
-        <footer className="mt-16 text-center text-white/80 text-sm">
-          <p>Developed by Your Name | PM Accelerator Program</p>
-          <p className="mt-2">Weather data from Open-Meteo | Geocoding by Geoapify</p>
+        <footer className="mt-16 text-center text-white/90">
+          <div className="mb-4">
+            <p className="text-sm font-medium">
+              Developed by <span className="font-bold">Your Name</span>
+            </p>
+            <button
+              onClick={() => window.open('https://www.pmaccelerator.io/', '_blank')}
+              className="mt-2 inline-flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg transition-colors text-sm backdrop-blur-sm"
+            >
+              <span>ℹ️</span>
+              <span>PM Accelerator Program</span>
+            </button>
+          </div>
+          <div className="text-xs text-white/70 space-y-1">
+            <p>Weather data from Open-Meteo | Geocoding by Geoapify</p>
+            <p>Tech Assessment - AI/ML Software Engineer Intern</p>
+          </div>
         </footer>
       </div>
     </div>

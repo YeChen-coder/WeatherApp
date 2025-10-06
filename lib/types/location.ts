@@ -28,6 +28,8 @@ export interface Location {
   longitude: number;
   confidence?: number;
   type?: string;
+  country?: string;
+  city?: string;
 }
 
 export interface GeocodingResult {

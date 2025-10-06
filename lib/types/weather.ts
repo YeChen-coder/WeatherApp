@@ -84,3 +84,41 @@ export const WEATHER_CODE_DESCRIPTIONS: Record<number, string> = {
 export function getWeatherDescription(code: number): string {
   return WEATHER_CODE_DESCRIPTIONS[code] || 'Unknown';
 }
+
+// Weather icons mapping using emoji
+export function getWeatherIcon(code: number, isDay: boolean = true): string {
+  // Clear sky
+  if (code === 0) return isDay ? '☀️' : '🌙';
+
+  // Mainly clear
+  if (code === 1) return isDay ? '🌤️' : '🌙';
+
+  // Partly cloudy
+  if (code === 2) return isDay ? '⛅' : '☁️';
+
+  // Overcast
+  if (code === 3) return '☁️';
+
+  // Fog
+  if (code === 45 || code === 48) return '🌫️';
+
+  // Drizzle
+  if (code >= 51 && code <= 55) return '🌦️';
+
+  // Rain
+  if (code >= 61 && code <= 65) return '🌧️';
+
+  // Snow
+  if (code >= 71 && code <= 77) return '❄️';
+
+  // Rain showers
+  if (code >= 80 && code <= 82) return '🌧️';
+
+  // Snow showers
+  if (code >= 85 && code <= 86) return '🌨️';
+
+  // Thunderstorm
+  if (code >= 95 && code <= 99) return '⛈️';
+
+  return '🌡️'; // Default
+}

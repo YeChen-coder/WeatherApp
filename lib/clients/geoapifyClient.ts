@@ -56,6 +56,8 @@ export class GeoapifyClient {
       longitude: result.lon,
       confidence: result.rank?.confidence,
       type: result.result_type,
+      country: result.country,
+      city: result.city,
     }));
   }
 
@@ -93,6 +95,8 @@ export class GeoapifyClient {
       longitude: result.lon,
       confidence: result.rank?.confidence,
       type: result.result_type,
+      country: result.country,
+      city: result.city,
     };
   }
 }
