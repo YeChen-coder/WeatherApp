@@ -7,6 +7,7 @@ import CurrentWeather from '@/components/weather/CurrentWeather';
 import ForecastDisplay from '@/components/weather/ForecastDisplay';
 import DateRangePicker from '@/components/weather/DateRangePicker';
 import HistoricalWeather from '@/components/weather/HistoricalWeather';
+import YouTubeVideos from '@/components/weather/YouTubeVideos';
 import { Location } from '@/lib/types/location';
 import { CurrentWeather as CurrentWeatherType, DailyWeather } from '@/lib/types/weather';
 
@@ -295,6 +296,11 @@ export default function Home() {
               data={historicalData}
               dateRange={{ start: startDate, end: endDate }}
             />
+          )}
+
+          {/* YouTube Videos */}
+          {selectedLocation && !loading && (currentWeather || historicalData) && (
+            <YouTubeVideos locationName={selectedLocation.name} />
           )}
         </main>
 
