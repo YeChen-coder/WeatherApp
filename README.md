@@ -1,6 +1,6 @@
 # Weather Information Platform
 
-**Demo video**: https://youtu.be/k901hLw-Tsw
+**Demo video**: https://youtu.be/HmoUmBJQvew
 
 A full-stack weather application demonstrating API integration, database CRUD operations, and data export capabilities. Built for PM Accelerator's AI/ML Software Engineer Intern technical assessment.
 
