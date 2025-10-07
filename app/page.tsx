@@ -359,7 +359,7 @@ export default function Home() {
         <footer className="mt-16 text-center text-white/90">
           <div className="mb-4">
             <p className="text-sm font-medium">
-              Developed by <span className="font-bold">Your Name</span>
+              Developed by <span className="font-bold">ClairC</span>
             </p>
             <button
               onClick={() => window.open('https://www.pmaccelerator.io/', '_blank')}

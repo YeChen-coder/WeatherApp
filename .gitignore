@@ -49,3 +49,4 @@ logfile
 
 # Prisma
 prisma/migrations
+DEPLOYMENT-AWS.md
